@@ -3,9 +3,11 @@ Scripts
 
 Hopfully useful.
 
-root\
-	awk\				-- text file processing via awk (or gawk under windows via the 'gow' project)
-						-- awk -f %script% %input% > %output%
+root \
+	awk \				
+	
+	-- text file processing via awk (or gawk under windows via the 'gow' project)
+	-- awk -f %script% %input% > %output%
 						
 		txt2Cstr.awk	-- converts a text file to a c/c++ string. 
 
