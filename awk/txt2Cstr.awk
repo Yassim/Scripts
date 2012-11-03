@@ -1,7 +1,8 @@
 
-function rtrim(str) {
-    #sub(/^[ \t]+/,"",str);  # remove leading whitespaces
-    sub(/[ \t]+$/,"",str);  # remove trailing whitespaces
+function clean(str) {
+    sub(/[ \t]+$/,"",str);   # remove trailing whitespaces
+	gsub(/\\/, "\\\\", str); # escape back slash
+	gsub(/"/, "\\\"", str);  # escape double quotes
     return str;
 }
 function nuke_dot(str)
@@ -11,17 +12,16 @@ function nuke_dot(str)
 }
 
 BEGIN {
-	text = ""
-}
-{
-	text = text "\t\"" rtrim($0) "\"\n"
-}
-END {
 	print "/////////////////////////////////////////////"
 	print "// CODE GENORATED BY AN AWK SCRIPT "
 	print "/////////////////////////////////////////////"
 	print ""
 	print "const char * "  nuke_dot(FILENAME)  " = "
-	print text ";"
+}
+{
+	print "\t\"" clean($0) "\""
+}
+END {
+	print ";"
 	print ""	
 }
