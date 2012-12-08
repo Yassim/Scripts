@@ -1,0 +1,14 @@
+%%
+
+//
+// Heap Interface 'c style'
+//
+#include <stdlib.h>
+
+%%
+
+void Destroy();
+
+void * Alloc( size_t numBytes );
+void * ReAlloc( void * ptr, size_t numBytes );
+void Free ( void * ptr );

@@ -10,6 +10,7 @@ root \
 	-- awk -f %script% %input% > %output%
 						
 		txt2Cstr.awk	-- converts a text file to a c/c++ string. 
+		api2c.awk 		-- Parses a text file of api to a c style interface.
 
 Licence
 ===========================

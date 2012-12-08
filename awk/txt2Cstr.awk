@@ -12,14 +12,20 @@ function nuke_dot(str)
 }
 
 BEGIN {
-	print "/////////////////////////////////////////////"
-	print "// CODE GENORATED BY AN AWK SCRIPT "
-	print "/////////////////////////////////////////////"
-	print ""
-	print "const char * "  nuke_dot(FILENAME)  " = "
+	needsHeader = 1;
 }
 {
-	print "\t\"" clean($0) "\""
+	if (needsHeader) {
+		needsHeader = 0;
+		
+		print "/////////////////////////////////////////////"
+		print "// CODE GENORATED BY AN AWK SCRIPT "
+		print "/////////////////////////////////////////////"
+		print ""
+		print "const char * "  nuke_dot(FILENAME)  " = "
+	}
+	
+	print "\t\"" clean($0) "\\n\""
 }
 END {
 	print ";"
