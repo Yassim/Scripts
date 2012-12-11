@@ -1,7 +1,7 @@
 Scripts
 =========================
 
-Hopfully useful.
+Hopefully useful.
 
 root \
 	awk \				
@@ -15,7 +15,7 @@ root \
 Licence
 ===========================
 
-Unless otherwise stated, these script are release under the MIT licence, in the hope that they will be useful.
+Unless otherwise stated, these scripts are released under the MIT licence, in the hope that they will be useful.
 
 The MIT License (MIT)
 Copyright (c) 2012 Andrew Phillips ( andrew.j.w.phillips -- gmail )

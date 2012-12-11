@@ -260,12 +260,16 @@ END {
 	}
 	print "};"
 	print ""
-	print Itype " * foo_Create() "
+	print Itype " * foo_Init( foo_" Itype " * this )"
 	print "{"
-	print "\tfoo_" Itype " * pNew = malloc( sizeof( foo_" Itype " ) );"  ;
-	print "\tpNew->VTable = &imp_foo;" ;
+	print "\tthis->VTable = &imp_foo;" ;
 	emitComment( "foo's init here" );
-	print "\treturn ( " Itype " * ) pNew;" ;
+	print "\treturn ( " Itype " * ) this;" ;
+	print "}";
+	print ""
+	print Itype " * foo_New() "
+	print "{"
+	print "\treturn foo_Init( (foo_" Itype " *) malloc( sizeof( foo_" Itype " ) ) );"  ;
 	print "}";
 	print "*****************************************";
 	print "*** END Implimentation base for a 'foo' " interface;

@@ -89,14 +89,18 @@ static const IHeapVTable_t imp_foo = {
 	foo_Free
 };
 
-IHeap_t * foo_Create() 
+IHeap_t * foo_Init( foo_IHeap_t * this )
 {
-	foo_IHeap_t * pNew = malloc( sizeof( foo_IHeap_t ) );
-	pNew->VTable = &imp_foo;
+	this->VTable = &imp_foo;
 //
 // foo's init here
 //
-	return ( IHeap_t * ) pNew;
+	return ( IHeap_t * ) this;
+}
+
+IHeap_t * foo_New() 
+{
+	return foo_Init( (foo_IHeap_t *) malloc( sizeof( foo_IHeap_t ) ) );
 }
 *****************************************
 *** END Implimentation base for a 'foo' IHeap
